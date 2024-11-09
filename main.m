@@ -11,10 +11,11 @@ rng(1);
 
 % Set conditions
 alpha = [0.5, 0.5, 1.5]; % column-wise concentration parameters of Dirichlet distribution
-isPlot = true;
-nIter = 100;
+% a1 = 0.5*ones(5, 1); a2 = 0.5*ones(5, 1); a3 = 1.5*ones(5, 1); alpha = [a1; a2; a3].'; % element-wise concentration parameters of Dirichlet distribution
+nIter = 100; % number of iterations in NMF optimizatino
+isPlot = true; % plot convergence curve of the cost function value
 
-% Produce low-rank nonnegative matrix
+% Produce low-rank nonnegative matrix using sparse and smooth bases
 w1 = [0, 0, 1, 0, 0]; % sparse basis 1
 w2 = [1, 0, 0, 0, 0]; % sparse basis 2
 w3 = [0.2, 0.2, 0.2, 0.2, 0.2]; % smooth basis
@@ -24,7 +25,7 @@ obsX = oracleW * oracleH; % 5 x 10
 
 % Apply Dirichlet NMF
 [estW, estH, cost] = dirichletNmf(obsX, alpha, nIter, isPlot);
-estX = estW * estH; % model matrix
+estX = estW * estH; % estimated model matrix
 
 % Plot estimated matrices
 figure("Position", [100, 100, 840, 384]); heatmap(obsX);
