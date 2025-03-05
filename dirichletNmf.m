@@ -35,6 +35,7 @@ if rowConc ~= 1 & rowConc ~= row; error("The concentration parameter (concParam)
 if nIter < 1; error("The number of iterations (nIter) must be a positive integer value.\n"); end
 
 % Initialize variables
+obsMat = max(obsMat, eps); % flooring
 basisMat = rand(row, nBasis);
 basisMat = basisMat./sum(basisMat, 1); % column-wise normalization
 coefMat = rand(nBasis, col);
