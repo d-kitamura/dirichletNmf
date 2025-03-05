@@ -56,7 +56,6 @@ end
 % -------------------------------------------------------------------------
 function [W, H, cost] = calcDirichletNmf(X, A, W, H, nIter, isDrawCost)
 cost = zeros(nIter+1, 1);
-[I, J] = size(X);
 
 if isDrawCost
     cost(1) = calcCostVal(X, A, W, H);
