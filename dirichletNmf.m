@@ -5,7 +5,7 @@ function [basisMat, coefMat, cost] = dirichletNmf(obsMat, concParam, nIter, isDr
 % Coded by D. Kitamura (d-kitamura@ieee.org)
 %
 % [Syntax]
-%   [basisMat, coefMat, cost] = dirichletNmf(obsMat, nBasis, nIter)
+%   [basisMat, coefMat, cost] = dirichletNmf(obsMat, concParam, nIter, isDrawCost)
 %
 % [Inputs]
 %       obsMat: observed nonnegative matrix (row x col)
